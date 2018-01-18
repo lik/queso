@@ -24,3 +24,6 @@ Right now the bot won't return much useful information, but it does store the co
 This blog page helped me get started:
 
 - [Using VADER to handle sentiment analysis with social media text](http://t-redactyl.io/blog/2017/04/using-vader-to-handle-sentiment-analysis-with-social-media-text.html)
+
+As well as this friendly guy:
+- [inexist3nce](https://github.com/inexist3nce)
