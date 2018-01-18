@@ -13,6 +13,9 @@ Right now the bot won't return much useful information, but it does store the co
 
 <sup>1: The `compound` score is computed by summing the valence scores of each word in the lexicon, adjusted according to the rules, and then normalized to be between -1 (most extreme negative) and +1 (most extreme positive). This is the most useful metric if you want a single unidimensional measure of sentiment for a given sentence. Calling it a 'normalized, weighted composite score' is accurate. [Source](https://github.com/cjhutto/vaderSentiment#about-the-scoring)</sup>
 
+### Commands
+- `.rank`: returns the three most positive and negative users
+
 ## Todo
 - Output a graph of some sort
 - Have user-accessible commands
