@@ -17,8 +17,9 @@ Right now the bot won't return much useful information, but it does store the co
 - `.rank`: returns the three most positive and negative users
 
 ## Todo
+- Create the .db file and have it configured correctly beforehand
 - Output a graph of some sort
-- Have user-accessible commands
+- Have user-accessible commands (currently in progress)
 
 ## Credits
 This blog page helped me get started:
