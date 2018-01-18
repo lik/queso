@@ -17,3 +17,7 @@ Washington, USA,
 and Comparing Opinions on the Web." Proceedings of the 14th
 International World Wide Web conference (WWW-2005), May 10-14,
 2005, Chiba, Japan.
+
+This blog page helped me get started as well:
+
+- [Analyzing Messy Data Sentiment with Python and nltk](https://www.twilio.com/blog/2017/09/sentiment-analysis-python-messy-data-nltk.html)
