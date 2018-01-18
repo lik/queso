@@ -1,26 +1,29 @@
-from nltk.classify import NaiveBayesClassifier
+import time
 import pydle
+import sqlite3
+from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
-pos = []
-with open("./pos_tweets.txt") as f:
-    for i in f:
-        pos.append([format_sentence(i), 'pos'])
+analyser = SentimentIntensityAnalyzer()
+db = sqlite3.connect('queso.db')
+cursor = db.cursor()
 
-neg = []
-with open("./neg_tweets.txt") as f:
-    for i in f:
-        neg.append([format_sentence(i), 'neg'])
-
-classifier = NaiveBayesClassifier.train(training)
-
-# Simple echo bot.
 class MyOwnBot(pydle.Client):
     def on_connect(self):
-         self.message('NickServ', 'IDENTIFY queso123')
-         self.join('#effay')
+        f = open('pass', 'r')
+        self.message('NickServ', 'IDENTIFY ' + f.readline())
+        f.close()
+        self.join('#homescreen')
 
     def on_channel_message(self, target, by, message):
-         self.message(target, message)
+        nick = by
+        if nick.endswith("bot"):
+            return
+        compound = analyser.polarity_scores(message).get('compound')
+        if compound == 0:
+            return
+        unix = int(time.time())
+        cursor.execute('''INSERT INTO poo(nick, compound, time) VALUES(:nick, :compound, :time)''', {'nick':nick, 'compound':compound, 'time':unix})
+        db.commit()
 
 client = MyOwnBot('queso', realname='queso')
 client.connect('irc.rizon.net', 6697, tls=True, tls_verify=False)
